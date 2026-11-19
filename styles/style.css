@@ -1,0 +1,86 @@
+/*mobile styles first!*/
+:root{
+    --text-color: rgb(30, 30, 30);
+    --background-color: rgb(225, 225, 225);
+}
+/*in theory this should only apply if the user has the browser 
+setting to prefer dark mode*/
+@media (prefers-color-scheme: dark){
+    /*use the custom properties*/
+    :root{
+        --text-color: rgb(225, 225, 225);
+        --background-color: rgb(30, 30, 30);
+    
+    }
+}
+
+/*you can also check if the device supports different color
+regimes (like p3) and give users a different color scheme for it*/
+@media (color-gamut: p3){
+    :root{
+        --text-color: oklch(0.6738 0.2997 355.23);
+    }
+}
+@media print{
+    /*styles specifically for printers*/
+    p{
+        color: black;
+        background: none;
+    }
+
+}
+
+html{
+    /*for easy math with fonts*/
+    font-size: 10px;
+}
+
+h1{
+    font-size: 3em;
+}
+
+h3{
+    font-size: 2.2em;
+}   
+
+a{
+    color:chartreuse
+}
+a:hover{
+    color:orange;
+}
+@media (hover:none){
+    /*if the device doesn't support hover*/
+    a{
+        border:3px solid bisque;
+    }
+    a:active{
+        background-color:orange;
+    }
+}
+
+p{
+    font-size: 1.6em;
+    color:azure;
+    background:darkblue;
+
+    padding: 40px;
+    border-radius: 30px;
+    
+}
+@supports (corner-shape: bevel){
+    p{
+        border-radius: 40px;
+        corner-shape:bevel;
+    }
+}
+/*you can set media queries to em or rem so they will repond to 
+changes in font size*/
+@media screen and (min-width:76.8em){
+    h1{
+        font-size: 5em;
+    }
+    h3{
+        font-size: 2.4em;
+    }
+}
