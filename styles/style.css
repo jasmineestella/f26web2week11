@@ -71,9 +71,16 @@ p{
 @supports (corner-shape: bevel){
     p{
         border-radius: 40px;
-        corner-shape:bevel;
+        corner-shape:notch bevel squircle;
     }
 }
+/*check to see if something does not support and apply styles for it*/
+@supports not (corner-shape: bevel){
+    p{
+       background: red;
+    }
+}
+
 /*you can set media queries to em or rem so they will repond to 
 changes in font size*/
 @media screen and (min-width:76.8em){
